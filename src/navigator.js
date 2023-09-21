@@ -7,9 +7,8 @@
  */
 "use strict";
 
-
 import { GPU, cGPU } from './api/GPU.js';
-
+import { GPUBufferUsage } from './api/GPUBufferUsage.js';
 
 //Expose emulated layer by default
 if (true) {
@@ -20,5 +19,7 @@ if (true) {
 if (!navigator.gpu) {
 	window.GPU = GPU;
 	navigator.gpu = new cGPU;
+
+	window.GPUBufferUsage = GPUBufferUsage;
 }
 
