@@ -7,6 +7,7 @@
  */
 "use strict";
 
+import { property } from '../util/property.js';
 import { GPUAdapterInfo } from './GPUAdapterInfo.js';
 import { GPUSupportedFeatures } from './GPUSupportedFeatures.js';
 import { GPUSupportedLimits } from './GPUSupportedLimits.js';
@@ -19,9 +20,9 @@ class GPUAdapter {
 	 */
 	constructor(options) {
 
-		this.features = new GPUSupportedFeatures;
-		this.isFallbackAdapter = true;
-		this.limits = new GPUSupportedLimits;
+		property.readonly(this, 'features', new GPUSupportedFeatures);
+		property.readonly(this, 'isFallbackAdapter', true);
+		property.readonly(this, 'limits', new GPUSupportedLimits);
 	}
 
 	/**
