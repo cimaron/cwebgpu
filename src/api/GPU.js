@@ -49,5 +49,8 @@ class GPU extends cGPU {
 	}
 }
 
+
+console.warn('cWebGPU: GPU.wgslLanguageFeatures not implemented yet');
+
 export { cGPU, GPU };
 
