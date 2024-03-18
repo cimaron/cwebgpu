@@ -7,6 +7,8 @@
  */
 "use strict";
 
+import internal from '../util/internal.js';
+import property from '../util/property.js';
 import { GPU } from './GPU.js';
 import GPUBuffer from './GPUBuffer.js';
 import GPUDeviceLostInfo from './GPUDeviceLostInfo.js';
@@ -17,9 +19,7 @@ import GPUSupportedLimits from './GPUSupportedLimits.js';
 import WebGLContext from '../webgl/context.js';
 
 
-
-const storage = new WeakMap;
-
+const readonly = property.readonly;
 
 class GPUDevice extends EventTarget {
 
@@ -27,50 +27,35 @@ class GPUDevice extends EventTarget {
 	 * @param {object} descriptor
 	 */
 	constructor(descriptor) {
+		super();
 
 		descriptor = descriptor || {};
-		super(descriptor.label);
 
-		const data = {};
-		storage.set(this, data);
-
-		data.features = new GPUSupportedFeatures;
-		data.limits   = new GPUSupportedLimits;
-		data.queue    = {name : "GPUQueue"};
+		const ctx = new WebGLContext;
 
 		//Context handling
-		data.ctx = new WebGLContext;
-		data.gl = data.ctx.gl;
-
-		data.lost = data.ctx.lost().then(function(e) {
-			return new GPUDeviceLostInfo(e.statusMessage || "unknown error");
+		internal(this, {
+			ctx : ctx,
+			gl : ctx.gl
 		});
 
-		//Debug-only
-		if (GPU.debug) {
-			this._data = data;
-		}
-	}
+		const features = new GPUSupportedFeatures;
+		readonly(this, 'features', features);
 
-	/**
-	 * @returns {GPUSupportedFeatures}
-	 */
-	get features() {
-		return storage.get(this).features;
-	}
+		const label = descriptor?.label;
+		property.string(this, 'label', label);
 
-	/**
-	 * @returns {GPUSupportedLimits}
-	 */
-	get limits() {
-		return storage.get(this).limits;
-	}
+		const limits = new GPUSupportedLimits;
+		readonly(this, 'limits', limits);
 
-	/**
-	 * @returns {Promise<GPUDeviceLostInfo>}
-	 */
-	get lost() {
-		return storage.get(this).lost;
+		const lost = ctx.lost().then(function(e) {
+			return new GPUDeviceLostInfo(e.statusMessage || "unknown error");
+		});
+		readonly(this, 'lost', lost);
+
+		readonly(this, 'queue', nulll);
+
+		GPU.debug && (this.internal = internal(this));
 	}
 
 	/**
@@ -100,6 +85,26 @@ class GPUDevice extends EventTarget {
 		return new GPUShaderModule(descriptor);
 	}
 }
+
+console.warn("cWebGPU: GPUDevice.createBindGroup() not implemented yet");
+console.warn("cWebGPU: GPUDevice.createBindGroupLayout() not implemented yet");
+console.warn("cWebGPU: GPUDevice.createCommandBuffer() not implemented yet");
+console.warn("cWebGPU: GPUDevice.createCommandEncoder() not implemented yet");
+console.warn("cWebGPU: GPUDevice.createComputePipeline() not implemented yet");
+console.warn("cWebGPU: GPUDevice.createComputePipelineAsync() not implemented yet");
+console.warn("cWebGPU: GPUDevice.createComputePipelineLayout() not implemented yet");
+console.warn("cWebGPU: GPUDevice.createQuerySet() not implemented yet");
+console.warn("cWebGPU: GPUDevice.createRenderBundleEncoder() not implemented yet");
+console.warn("cWebGPU: GPUDevice.createRenderPipeline() not implemented yet");
+console.warn("cWebGPU: GPUDevice.createRenderPipelineAsync() not implemented yet");
+console.warn("cWebGPU: GPUDevice.createSampler() not implemented yet");
+console.warn("cWebGPU: GPUDevice.createTexture() not implemented yet");
+console.warn("cWebGPU: GPUDevice.destroy() not implemented yet");
+console.warn("cWebGPU: GPUDevice.importExternalTexture() not implemented yet");
+console.warn("cWebGPU: GPUDevice.popErrorScope() not implemented yet");
+console.warn("cWebGPU: GPUDevice.pushErrorScope() not implemented yet");
+
+
 
 export default GPUDevice;
 
