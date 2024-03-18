@@ -30,4 +30,4 @@ for (let i in GPUBufferUsage) {
 	});
 }
 
-export { GPUBufferUsage };
+export default GPUBufferUsage;

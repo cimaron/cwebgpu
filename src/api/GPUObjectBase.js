@@ -7,7 +7,7 @@
  */
 "use strict";
 
-import { property } from '../util/property.js';
+import property from '../util/property.js';
 
 
 class GPUObjectBase {
@@ -21,4 +21,4 @@ class GPUObjectBase {
 };
 
 
-export { GPUObjectBase };
+export default GPUObjectBase;

@@ -8,14 +8,14 @@
 "use strict";
 
 import { GPU } from './GPU.js';
-import { GPUBuffer } from './GPUBuffer.js';
-import { GPUDeviceLostInfo } from './GPUDeviceLostInfo.js';
-import { GPURenderPipeline } from './GPURenderPipeline.js';
-import { GPUShaderModule } from './GPUShaderModule.js';
-import { GPUSupportedFeatures } from './GPUSupportedFeatures.js';
-import { GPUSupportedLimits } from './GPUSupportedLimits.js';
+import GPUBuffer from './GPUBuffer.js';
+import GPUDeviceLostInfo from './GPUDeviceLostInfo.js';
+import GPURenderPipeline from './GPURenderPipeline.js';
+import GPUShaderModule from './GPUShaderModule.js';
+import GPUSupportedFeatures from './GPUSupportedFeatures.js';
+import GPUSupportedLimits from './GPUSupportedLimits.js';
+import WebGLContext from '../webgl/context.js';
 
-import { WebGLContext } from '../webgl/context.js';
 
 
 const storage = new WeakMap;
@@ -101,5 +101,5 @@ class GPUDevice extends EventTarget {
 	}
 }
 
-export { GPUDevice };
+export default GPUDevice;
 

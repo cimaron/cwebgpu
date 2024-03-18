@@ -50,5 +50,5 @@ const property = {
 };
 
 
-export { property };
+export default property;
 

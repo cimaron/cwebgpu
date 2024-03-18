@@ -7,11 +7,11 @@
  */
 "use strict";
 
-import { property } from '../util/property.js';
-import { GPUAdapterInfo } from './GPUAdapterInfo.js';
-import { GPUSupportedFeatures } from './GPUSupportedFeatures.js';
-import { GPUSupportedLimits } from './GPUSupportedLimits.js';
-import { GPUDevice } from './GPUDevice.js';
+import property from '../util/property.js';
+import GPUAdapterInfo from './GPUAdapterInfo.js';
+import GPUSupportedFeatures from './GPUSupportedFeatures.js';
+import GPUSupportedLimits from './GPUSupportedLimits.js';
+import GPUDevice from './GPUDevice.js';
 
 
 class GPUAdapter {
@@ -55,4 +55,4 @@ class GPUAdapter {
 console.warn("cWebGPU: GPUBuffer.mapState not implemented yet");
 
 
-export { GPUAdapter };
+export default GPUAdapter;

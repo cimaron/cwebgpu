@@ -30,5 +30,5 @@ console.warn("cWebGPU: GPUBuffer.mapAsync() not implemented yet");
 console.warn("cWebGPU: GPUBuffer.unmap() not implemented yet");
 
 
-export { GPUBuffer };
+export default GPUBuffer;
 

@@ -7,7 +7,7 @@
  */
 "use strict";
 
-import { property } from '../util/property.js';
+import property from '../util/property.js';
 
 
 const GPUDeviceLostReason = [
@@ -36,4 +36,4 @@ class GPUDeviceLostInfo {
 }
 
 
-export { GPUDeviceLostInfo };
+export default GPUDeviceLostInfo;

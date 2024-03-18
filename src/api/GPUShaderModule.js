@@ -16,5 +16,5 @@ class GPUShaderModule {
 	}
 }
 
-export { GPUShaderModule };
+export default GPUShaderModule;
 

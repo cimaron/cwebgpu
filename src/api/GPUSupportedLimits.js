@@ -7,7 +7,7 @@
  */
 "use strict";
 
-import { property } from '../util/property.js';
+import property from '../util/property.js';
 
 
 class GPUSupportedLimits {
@@ -54,4 +54,4 @@ class GPUSupportedLimits {
 }
 
 
-export { GPUSupportedLimits };
+export default GPUSupportedLimits;

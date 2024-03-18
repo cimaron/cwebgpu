@@ -7,7 +7,7 @@
  */
 "use strict";
 
-import { GPUAdapter } from './GPUAdapter.js';
+import GPUAdapter from './GPUAdapter.js';
 
 
 class cGPU {

@@ -11,5 +11,5 @@
 class GPUSupportedFeatures extends Set {
 }
 
-export { GPUSupportedFeatures };
+export default GPUSupportedFeatures;
 

@@ -16,5 +16,5 @@ class GPURenderPipeline {
 	}
 }
 
-export { GPURenderPipeline };
+export default GPURenderPipeline;
 

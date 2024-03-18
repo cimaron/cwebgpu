@@ -8,8 +8,8 @@
 "use strict";
 
 import { GPU, cGPU } from './api/GPU.js';
-import { GPUBufferUsage } from './api/GPUBufferUsage.js';
-import { GPUCanvasContext } from './api/GPUCanvasContext.js';
+import GPUBufferUsage from './api/structures/GPUBufferUsage.js';
+import GPUCanvasContext from './api/GPUCanvasContext.js';
 
 //Expose emulated layer by default
 if (true) {

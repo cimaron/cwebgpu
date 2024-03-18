@@ -39,5 +39,5 @@ class GPUAdapterInfo {
 	}
 }
 
-export { GPUAdapterInfo };
+export default GPUAdapterInfo;
 

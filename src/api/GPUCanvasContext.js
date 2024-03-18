@@ -44,5 +44,5 @@ class GPUCanvasContext {
 	}
 }
 
-export { GPUCanvasContext };
+export default GPUCanvasContext;
 
