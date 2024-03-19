@@ -64,7 +64,7 @@ class GPUDevice extends EventTarget {
 	 * @returns {GPUBuffer}
 	 */
 	createBuffer(descriptor) {
-		return new GPUBuffer(descriptor);
+		return new GPUBuffer(internal(this).ctx, descriptor);
 	}
 
 	/**

@@ -33,6 +33,17 @@ const property = {
 	},
 
 	/**
+	 *
+	 */
+	alias : function(object, name, getter) {
+
+		Object.defineProperty(object, name, {
+			enumerable : true,
+			get : getter
+		});
+	},
+
+	/**
 	 * Initialize object property as a string
 	 *
 	 * @param {object} object
